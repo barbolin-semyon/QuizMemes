@@ -1,12 +1,11 @@
-package com.example.quizmemes
+package com.example.quizmemes.data
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
     private var retrofitAnswer: Retrofit? = null
+    private var retrofitResult: Retrofit? = null
 
     fun getAnswerClient(): Retrofit {
         if (retrofitAnswer == null) {
@@ -17,5 +16,16 @@ object RetrofitClient {
         }
 
         return retrofitAnswer!!
+    }
+
+    fun getResultClient(): Retrofit {
+        if (retrofitResult == null) {
+            retrofitResult = Retrofit.Builder()
+                .baseUrl("https://yesno.wtf/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+
+        return retrofitResult!!
     }
 }

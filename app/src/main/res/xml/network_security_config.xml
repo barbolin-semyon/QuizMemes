@@ -3,6 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">
             https://jservice.io/api/
+            https://yesno.wtf/
         </domain>
     </domain-config>
 </network-security-config>
